@@ -1,0 +1,95 @@
+<article class="album">
+  <article class="container">
+    <article class="row">
+
+      <!-- Información -->
+      <section class="col-md-4">
+        <section class="card mb-4 box-shadow">
+          <section class="card-img-top bg-info size-top"></section>
+          <section class="card-body">
+            <p class="card-text">
+              <b>Información</b><br>
+            </p>
+            <section *ngFor="let item of data.weather">
+              <img class="rounded float-left" src="http://openweathermap.org/img/w/{{ item?.icon }}.png" />
+              Ciudad: {{ hasProp(data, 'name') }}<br>
+              Estado: {{ hasProp(item, 'main') }}<br>
+              Descripción: {{ hasProp(item, 'description') }}<br><br>
+            </section>
+          </section>
+        </section>
+      </section>
+
+      <!-- Ubicación -->
+      <section class="col-md-4">
+        <section class="card mb-4 box-shadow">
+          <section class="card-img-top bg-info size-top"></section>
+          <section class="card-body">
+            <p class="card-text">
+              <b>Ubicación</b><br>
+              Longitud: {{ hasProp(data.coord, 'lon') }}<br>
+              Latitud: {{ hasProp(data.coord, 'lat') }}
+            </p>
+          </section>
+        </section>
+      </section>
+
+      <!-- Temperatura -->
+      <section class="col-md-4">
+        <section class="card mb-4 box-shadow">
+          <section class="card-img-top bg-info size-top"></section>
+          <section class="card-body">
+            <p class="card-text">
+              <b>Temperatura</b><br>
+              Temperatura: {{ hasProp(data.main, 'temp') }} °K<br>
+              Temperatura Mínima: {{ hasProp(data.main, 'temp_min') }}<br>
+              Temperatura Máxima: {{ hasProp(data.main, 'temp_max') }}
+            </p>
+          </section>
+        </section>
+      </section>
+
+      <!-- Humedad y presión -->
+      <section class="col-md-4">
+        <section class="card mb-4 box-shadow">
+          <section class="card-img-top bg-info size-top"></section>
+          <section class="card-body">
+            <p class="card-text">
+              <b>Humedad y Presión</b><br>
+              Humedad: {{ hasProp(data.main, 'humidity') }} %<br>
+              Presión atmosférica: {{ hasProp(data.main, 'pressure') }}
+            </p>
+          </section>
+        </section>
+      </section>
+
+      <!-- Nubes -->
+      <section class="col-md-4">
+        <section class="card mb-4 box-shadow">
+          <section class="card-img-top bg-info size-top"></section>
+          <section class="card-body">
+            <p class="card-text">
+              <b>Nubes</b><br>
+              Abundancia: {{ hasProp(data.clouds, 'all') }} %
+            </p>
+          </section>
+        </section>
+      </section>
+
+      <!-- Vientos -->
+      <section class="col-md-4">
+        <section class="card mb-4 box-shadow">
+          <section class="card-img-top bg-info size-top"></section>
+          <section class="card-body">
+            <p class="card-text">
+              <b>Vientos</b><br>
+              Velocidad: {{ hasProp(data.wind, 'speed') }} m/seg.<br>
+              Dirección: {{ hasProp(data.wind, 'deg') }} grados
+            </p>
+          </section>
+        </section>
+      </section>
+
+   </article>
+  </article>
+</article>

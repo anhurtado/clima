@@ -1,0 +1,20 @@
+<!-- Weather Search -->
+<article class="jumbotron text-center">
+  <section class="container">
+    <h1 class="jumbotron-heading">¡Busca tu ciudad!</h1>
+    <p class="lead text-muted">Conoce toda la información del clima referente a tu ciudad en un solo lugar.</p>
+    <input type="text" class="form-control text-center" name="cityName" [(ngModel)]="cityName" placeholder="Ingresa tu ciudad">
+    <p>
+      <a href="#" class="btn btn-primary my-2" (click)="searchByCityName()">Consultar</a>
+      <a href="#" class="btn btn-secondary my-2" (click)="cityName = ''">Limpiar</a>
+    </p>
+  </section>
+</article>
+
+<!-- Error Message -->
+<article class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+  {{ errorMessage }}
+</article>
+
+<!-- Weather Details -->
+<app-weather-details [data]="weatherData" *ngIf="!errorMessage"></app-weather-details>
